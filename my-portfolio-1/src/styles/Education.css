@@ -1,0 +1,273 @@
+.education {
+    padding: 100px 0;
+  }
+  
+  .education .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .education .heading {
+    font-family: "Poppins", sans-serif;
+    color: var(--soft-white);
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .education .heading-sub-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    color: var(--soft-white);
+    text-align: center;
+  }
+  
+  .education .heading-text {
+    font-family: "Poppins", sans-serif;
+    color: var(--soft-white);
+    text-align: center;
+  }
+  /* Remove duplicate heading styles - use global ones */
+  /* The .heading, .heading-sub-text, .heading-text classes 
+     should already be styled in your main CSS or About.css */
+  
+  /* Timeline Container */
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  /* Vertical Line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, #0e668f 0%, rgba(14, 102, 143, 0.3) 100%);
+    border-radius: 2px;
+  }
+  
+  /* Timeline Item */
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+  }
+  
+  .timeline-item.left {
+    left: 0;
+    text-align: left;
+  }
+  
+  .timeline-item.right {
+    left: 50%;
+    text-align: left;
+  }
+  
+
+/* Timeline Content Box - Made Bigger */
+.timeline-content {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 35px 30px;  /* Increased from 25px */
+    min-height: 200px;   /* Add minimum height */
+    transition: all 0.3s ease;
+  }
+  
+  /* Bigger text inside */
+  .timeline-title {
+    color: #ccd6f6;
+    font-size: 1.5rem;   /* Increased from 1.3rem */
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: inherit;
+  }
+  
+  .timeline-school {
+    color: #0e668f;
+    font-size: 1.25rem;  /* Increased from 1.1rem */
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-family: inherit;
+  }
+  
+  .timeline-location {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;     /* Increased from 0.9rem */
+    margin-bottom: 20px;
+    font-family: inherit;
+  }
+  
+  .timeline-date span {
+    background: #0e668f;
+    color: #fff;
+    padding: 8px 20px;   /* Increased from 5px 15px */
+    border-radius: 20px;
+    font-size: 1rem;     /* Increased from 0.85rem */
+    font-weight: 600;
+  }
+  
+  .timeline-achievements li {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;     /* Increased from 0.85rem */
+    padding: 8px 0;      /* Increased from 5px */
+    position: relative;
+    line-height: 1.6;
+  }
+  
+  /* Timeline Icon - Also bigger */
+  .timeline-icon {
+    position: absolute;
+    width: 60px;         /* Increased from 50px */
+    height: 60px;        /* Increased from 50px */
+    background: #0e668f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.8rem;   /* Increased from 1.5rem */
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(14, 102, 143, 0.4);
+  }
+  
+  .timeline-item.left .timeline-icon {
+    right: -70px;        /* Adjusted for bigger icon */
+  }
+  
+  .timeline-item.right .timeline-icon {
+    left: -70px;         /* Adjusted for bigger icon */
+  }
+  
+  /* Timeline Date */
+  .timeline-date {
+    margin-bottom: 15px;
+  }
+  
+  .timeline-date span {
+    background: #0e668f;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  /* Timeline Text */
+  .timeline-title {
+    color: #ccd6f6;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: inherit;
+  }
+  
+  .timeline-school {
+    color: #0e668f;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: inherit;
+  }
+  
+  .timeline-location {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-family: inherit;
+  }
+  
+  .timeline-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-family: inherit;
+  }
+  
+  /* Achievements */
+  .timeline-activities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .timeline-activities li {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+    font-family: inherit;
+  }
+  
+  .timeline-item.left .timeline-activities li {
+    padding-left: 0;
+    padding-right: 20px;
+  }
+  
+  .timeline-activities li::before {
+    content: '▹';
+    color: #0e668f;
+    position: absolute;
+    left: 0;
+  }
+  
+  .timeline-item.left .timeline-activities li::before {
+    left: auto;
+    right: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 20px;
+    }
+  
+    .timeline-item {
+      width: 100%;
+      padding-left: 60px;
+      padding-right: 20px;
+    }
+  
+    .timeline-item.left,
+    .timeline-item.right {
+      left: 0;
+      text-align: left;
+    }
+  
+    .timeline-item.left .timeline-icon,
+    .timeline-item.right .timeline-icon {
+      left: -5px;
+      right: auto;
+    }
+  
+    .timeline-item.left .timeline-achievements li {
+      padding-left: 20px;
+      padding-right: 0;
+    }
+  
+    .timeline-item.left .timeline-achievements li::before {
+      left: 0;
+      right: auto;
+    }
+  
+    .timeline-content {
+      padding: 20px;
+    }
+  
+    .timeline-title {
+      font-size: 1.1rem;
+    }
+  
+    .timeline-school {
+      font-size: 1rem;
+    }
+  }
