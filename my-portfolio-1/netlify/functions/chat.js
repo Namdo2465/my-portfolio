@@ -53,10 +53,14 @@ exports.handler = async (event, context) => {
   try {
     const { messages } = JSON.parse(event.body);
 
+    console.log("Received messages:", messages);
+
     if (!messages || !Array.isArray(messages)) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Invalid request: messages array required" }),
+        body: JSON.stringify({
+          error: "Invalid request: messages array required",
+        }),
       };
     }
 
