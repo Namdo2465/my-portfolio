@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGraduationCap } from "react-icons/fa";
+import { FiChevronDown } from "react-icons/fi";
 import "../styles/Education.css";
 
 const educationData = [
@@ -9,11 +10,11 @@ const educationData = [
     degree: "BA in Computer Science & Mathematics",
     school: "Grinnell College",
     location: "Grinnell, Iowa, USA",
-    period: "2025 - 2029 (Expected)",
+    period: "2025 - 2028 (Expected)",
     activities: [
       "Student Governmental Association: Student Education Policy Committee (SEPC) coordinator",
       "Grinnell Pioneer Capital Investment",
-      "Vietnamese Student Association",      
+      "Vietnamese Student Association",
       "International Soccer Club",
     ],
   },
@@ -24,13 +25,14 @@ const educationData = [
     location: "Singapore",
     period: "2021 - 2024",
     activities: [
-        "43/45 for IB Diploma Programme",
-        "Vice President of Mathematics Competition Team",
-        "Vice Captain of Tan Kah Kee(TKK) House",
-        "Member of Boarding School Student Council",
-        "Executive committee member of Blood Drive donation",
-        "Member of School Soccer Team",
-        "Head of Logistics for Choir"],
+      "43/45 for IB Diploma Programme",
+      "Vice President of Mathematics Competition Team",
+      "Vice Captain of Tan Kah Kee(TKK) House",
+      "Member of Boarding School Student Council",
+      "Executive committee member of Blood Drive donation",
+      "Member of School Soccer Team",
+      "Head of Logistics for Choir",
+    ],
   },
   {
     id: 3,
@@ -39,13 +41,16 @@ const educationData = [
     location: "Hanoi, Vietnam",
     period: "Aug 2020 - Dec 2020",
     activities: [
-        "5th place in the country-wide entrance exam for the Math-specialised class of 2023",
-        "Member of Hanoi-Amsterdam Math Club",],
+      "5th place in the country-wide entrance exam for the Math-specialised class of 2023",
+      "Member of Hanoi-Amsterdam Math Club",
+    ],
   },
   // Add more education entries as needed
 ];
 
 const Education = () => {
+  const [openId, setOpenId] = useState(null);
+
   const fadeIn = {
     opacity: 1,
     y: 0,
@@ -53,6 +58,10 @@ const Education = () => {
       duration: 1,
       ease: "easeOut",
     },
+  };
+
+  const toggleItem = (id) => {
+    setOpenId((currentId) => (currentId === id ? null : id));
   };
 
   return (
@@ -75,34 +84,54 @@ const Education = () => {
         </div>
 
         <div className="timeline">
-          {educationData.map((edu, index) => (
-            <motion.div
-              key={edu.id}
-              className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={fadeIn}
-              viewport={{ once: false }}
-            >
-              <div className="timeline-content">
-                <div className="timeline-icon">
-                  <FaGraduationCap />
+          {educationData.map((edu, index) => {
+            const isOpen = openId === edu.id;
+
+            return (
+              <motion.div
+                key={edu.id}
+                className={`timeline-item ${
+                  index % 2 === 0 ? "left" : "right"
+                } ${isOpen ? "is-open" : ""}`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={fadeIn}
+                viewport={{ once: false }}
+              >
+                <div className="timeline-content">
+                  <div className="timeline-icon">
+                    <FaGraduationCap />
+                  </div>
+                  <button
+                    type="button"
+                    className="timeline-toggle"
+                    aria-expanded={isOpen}
+                    aria-controls={`education-details-${edu.id}`}
+                    onClick={() => toggleItem(edu.id)}
+                  >
+                    <span className="timeline-summary">
+                      <span className="timeline-date">
+                        <span>{edu.period}</span>
+                      </span>
+                      <span className="timeline-title">{edu.degree}</span>
+                      <span className="timeline-school">{edu.school}</span>
+                      <span className="timeline-location">{edu.location}</span>
+                    </span>
+                    <FiChevronDown className="timeline-chevron" />
+                  </button>
+                  {isOpen && edu.activities && (
+                    <ul
+                      className="timeline-achievements timeline-details"
+                      id={`education-details-${edu.id}`}
+                    >
+                      {edu.activities.map((achievement, i) => (
+                        <li key={i}>{achievement}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-                <div className="timeline-date">
-                  <span>{edu.period}</span>
-                </div>
-                <h3 className="timeline-title">{edu.degree}</h3>
-                <h4 className="timeline-school">{edu.school}</h4>
-                <p className="timeline-location">{edu.location}</p>
-                {edu.activities && (
-                  <ul className="timeline-achievements">
-                    {edu.activities.map((achievement, i) => (
-                      <li key={i}>{achievement}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>

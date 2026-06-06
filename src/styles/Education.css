@@ -71,14 +71,65 @@
   
 
 /* Timeline Content Box - Made Bigger */
-.timeline-content {
+  .timeline-content {
     position: relative;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    padding: 35px 30px;  /* Increased from 25px */
-    min-height: 200px;   /* Add minimum height */
+    padding: 24px 24px;
+    min-height: auto;
     transition: all 0.3s ease;
+  }
+
+  .education .timeline-content:hover,
+  .education .timeline-item.is-open .timeline-content {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #0e668f;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .education .timeline-toggle {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    text-align: left;
+  }
+
+  .education .timeline-toggle:focus-visible {
+    outline: 2px solid #149ddd;
+    outline-offset: 6px;
+    border-radius: 8px;
+  }
+
+  .education .timeline-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .education .timeline-chevron {
+    flex: 0 0 auto;
+    color: #149ddd;
+    font-size: 1.5rem;
+    transition: transform 0.25s ease;
+  }
+
+  .education .timeline-item.is-open .timeline-chevron {
+    transform: rotate(180deg);
+  }
+
+  .education .timeline-details {
+    list-style: none;
+    padding: 18px 0 0;
+    margin: 18px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   /* Bigger text inside */
@@ -116,10 +167,17 @@
   
   .timeline-achievements li {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;     /* Increased from 0.85rem */
-    padding: 8px 0;      /* Increased from 5px */
+    font-size: 1rem;
+    padding: 8px 0 8px 20px;
     position: relative;
     line-height: 1.6;
+  }
+
+  .timeline-achievements li::before {
+    content: '▹';
+    color: #0e668f;
+    position: absolute;
+    left: 0;
   }
   
   /* Timeline Icon - Also bigger */

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaBriefcase } from "react-icons/fa";
+import { FiChevronDown } from "react-icons/fi";
 import "../styles/Experience.css";
 
 const experienceData = [
@@ -9,7 +10,7 @@ const experienceData = [
     title: "Software Engineer Intern",
     company: "FinBud AI",
     location: "Chicago, Illinois",
-    period: "Aug 2025 - Present",
+    period: "Aug 2025 - Apr 2026",
     responsibilities: [
       "Integrated financial chatbot by connecting FastAPI backend with Vue.js frontend, enabling users to access real-time investment insights and market analysis.",
       "Engineered RAG pipeline using LangChain and ChromaDB to retrieve and ground LLM responses in real-time data, improving answer accuracy and reducing hallucinations.",
@@ -55,6 +56,8 @@ const experienceData = [
 ];
 
 const Experience = () => {
+  const [openId, setOpenId] = useState(null);
+
   const fadeIn = {
     opacity: 1,
     y: 0,
@@ -62,6 +65,10 @@ const Experience = () => {
       duration: 1,
       ease: "easeOut",
     },
+  };
+
+  const toggleItem = (id) => {
+    setOpenId((currentId) => (currentId === id ? null : id));
   };
 
   return (
@@ -80,34 +87,54 @@ const Experience = () => {
         </div>
 
         <div className="timeline">
-          {experienceData.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              className={`timeline-item ${index % 2 === 1 ? "left" : "right"}`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={fadeIn}
-              viewport={{ once: false }}
-            >
-              <div className="timeline-content">
-                <div className="timeline-icon">
-                  <FaBriefcase />
+          {experienceData.map((exp, index) => {
+            const isOpen = openId === exp.id;
+
+            return (
+              <motion.div
+                key={exp.id}
+                className={`timeline-item ${
+                  index % 2 === 1 ? "left" : "right"
+                } ${isOpen ? "is-open" : ""}`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={fadeIn}
+                viewport={{ once: false }}
+              >
+                <div className="timeline-content">
+                  <div className="timeline-icon">
+                    <FaBriefcase />
+                  </div>
+                  <button
+                    type="button"
+                    className="timeline-toggle"
+                    aria-expanded={isOpen}
+                    aria-controls={`experience-details-${exp.id}`}
+                    onClick={() => toggleItem(exp.id)}
+                  >
+                    <span className="timeline-summary">
+                      <span className="timeline-date">
+                        <span>{exp.period}</span>
+                      </span>
+                      <span className="timeline-company">{exp.company}</span>
+                      <span className="timeline-title">{exp.title}</span>
+                      <span className="timeline-location">{exp.location}</span>
+                    </span>
+                    <FiChevronDown className="timeline-chevron" />
+                  </button>
+                  {isOpen && exp.responsibilities && (
+                    <ul
+                      className="timeline-responsibilities timeline-details"
+                      id={`experience-details-${exp.id}`}
+                    >
+                      {exp.responsibilities.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-                <div className="timeline-date">
-                  <span>{exp.period}</span>
-                </div>
-                <h3 className="timeline-company">{exp.company}</h3>
-                <h4 className="timeline-title">{exp.title}</h4>
-                <p className="timeline-location">{exp.location}</p>
-                {exp.responsibilities && (
-                  <ul className="timeline-responsibilities">
-                    {exp.responsibilities.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>
