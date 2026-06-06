@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Main from '../components/Main';
 import Navbar from '../components/navbar/Navbar';
 
-const HomePage = () => {
+const HomePage = ({ theme, toggleTheme }) => {
   // States
   const [nav, setNav] = useState(false)
 
@@ -18,7 +18,12 @@ const HomePage = () => {
 
   return(
     <div  className='pages'>
-        <Navbar nav={nav} handleNav={handleNav} />
+        <Navbar
+          nav={nav}
+          handleNav={handleNav}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
         <Main nav={nav} closeNav={closeNav} handleNav={handleNav} />
     </div>
   ) 

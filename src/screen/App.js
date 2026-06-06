@@ -7,9 +7,23 @@ import HomePage from "../pages/HomePage";
 function App() {
   // States
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
+
   useEffect(() => {
     setTimeout(() => setLoading(false), 3000)
   }, []);
+
+  useEffect(() => {
+    document.body.classList.remove("dark-theme", "light-theme");
+    document.body.classList.add(`${theme}-theme`);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
+  };
 
   const loadText = {
     hidden: {
@@ -35,9 +49,9 @@ function App() {
       </div>
     </div>
     :
-    <div className="App">
+    <div className={`App ${theme}-theme`}>
       <Router>
-        <HomePage />
+        <HomePage theme={theme} toggleTheme={toggleTheme} />
       </Router>
     </div>
   );

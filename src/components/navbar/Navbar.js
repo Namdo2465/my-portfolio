@@ -7,7 +7,7 @@ import {
   FaSuitcase,
   FaTrophy,
 } from "react-icons/fa";
-import { FiUser } from "react-icons/fi";
+import { FiMoon, FiSun, FiUser } from "react-icons/fi";
 import { Link } from "react-scroll";
 import CV from "../../data/Nam_Do_Resume_updated.pdf";
 import ProfileImg from "../../images/my_img.JPG";
@@ -33,7 +33,9 @@ const navVariants = {
   },
 };
 
-const Navbar = ({ nav, handleNav }) => {
+const Navbar = ({ nav, handleNav, theme, toggleTheme }) => {
+  const isLightTheme = theme === "light";
+
   return (
     <AnimatePresence>
       <>
@@ -128,6 +130,15 @@ const Navbar = ({ nav, handleNav }) => {
             >
               Resume
             </a>
+            <button
+              type="button"
+              className="theme-toggle"
+              aria-label={`Switch to ${isLightTheme ? "dark" : "light"} mode`}
+              aria-pressed={isLightTheme}
+              onClick={toggleTheme}
+            >
+              {isLightTheme ? <FiMoon /> : <FiSun />}
+            </button>
           </div>
         </nav>
         <motion.nav
@@ -293,6 +304,16 @@ const Navbar = ({ nav, handleNav }) => {
                 </li>
               </Link>
             </ul>
+            <button
+              type="button"
+              className="theme-toggle drawer-theme-toggle"
+              aria-label={`Switch to ${isLightTheme ? "dark" : "light"} mode`}
+              aria-pressed={isLightTheme}
+              onClick={toggleTheme}
+            >
+              {isLightTheme ? <FiMoon /> : <FiSun />}
+              <span>{isLightTheme ? "Dark mode" : "Light mode"}</span>
+            </button>
             <div className="copy">
               <small className="copyright">
                 © Copyright ©2026 | All rights reserved
