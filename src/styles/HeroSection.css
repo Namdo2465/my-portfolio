@@ -155,6 +155,12 @@
 	}
 }
 
+@media screen and (min-width: 901px) {
+	.menu-icon {
+		display: none;
+	}
+}
+
 @media screen and (max-width: 650px) {
 	.hero-intro {
 		font-size: 5rem;
