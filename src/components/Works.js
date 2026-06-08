@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../styles/Works.css";
 import { motion } from "framer-motion";
-import { ReactData, ReactNativeData, VueData } from "../data/WorkData";
+import { ReactData } from "../data/WorkData";
 import WorkCard from "./WorkCard";
 
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState("react");
+  const [activeTab] = useState("react");
 
   const fade = {
     opacity: 1,

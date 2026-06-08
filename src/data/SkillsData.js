@@ -19,7 +19,6 @@ import {
   SiFirebase,
   SiSupabase,
   SiCplusplus,
-  SiR,
   SiFlask,
   SiMysql,
   SiMongodb,
