@@ -72,9 +72,9 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    padding: 45px 40px;      /* Increased from 35px 30px */
-    min-height: 300px;        /* Increased from 200px */
-    min-width: 380px;         /* Added minimum width */
+    padding: 28px 28px;
+    min-height: auto;
+    min-width: 0;
     transition: all 0.3s ease;
   }
   
@@ -83,6 +83,49 @@
     border-color: #0e668f;
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .experience .timeline-item.is-open .timeline-content {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #0e668f;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .experience .timeline-toggle {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    text-align: left;
+  }
+
+  .experience .timeline-toggle:focus-visible {
+    outline: 2px solid #149ddd;
+    outline-offset: 6px;
+    border-radius: 8px;
+  }
+
+  .experience .timeline-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience .timeline-chevron {
+    flex: 0 0 auto;
+    color: #149ddd;
+    font-size: 1.5rem;
+    transition: transform 0.25s ease;
+  }
+
+  .experience .timeline-item.is-open .timeline-chevron {
+    transform: rotate(180deg);
   }
   
   /* Timeline Icon */
@@ -155,15 +198,16 @@
   .experience .timeline-location {
     color: rgba(255, 255, 255, 0.6);
     font-size: 1rem;        
-    margin-bottom: 30px;
+    margin-bottom: 0;
     font-family: inherit;
   }
   
   /* Responsibilities */
   .experience .timeline-responsibilities {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 18px 0 0;
+    margin: 18px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .experience .timeline-item.left .timeline-responsibilities {

@@ -1,4 +1,4 @@
-import { DiJavascript1 } from "react-icons/di";
+import { DiJavascript1, DiRuby } from "react-icons/di";
 import {
   FaReact,
   FaPython,
@@ -19,7 +19,6 @@ import {
   SiFirebase,
   SiSupabase,
   SiCplusplus,
-  SiR,
   SiFlask,
   SiMysql,
   SiMongodb,
@@ -33,11 +32,11 @@ import { TbBrandReactNative } from "react-icons/tb";
 export const SkillsData = {
   Languages: [
     { name: "Python", icon: <FaPython /> },
-    { name: "JavaScript", icon: <DiJavascript1 /> },
     { name: "TypeScript", icon: <SiTypescript /> },
+    { name: "Ruby", icon: <DiRuby /> },
+    { name: "JavaScript", icon: <DiJavascript1 /> },
     { name: "C++", icon: <SiCplusplus /> },
     { name: "C", icon: <SiC /> },
-    { name: "R", icon: <SiR /> },
     { name: "HTML", icon: <FaHtml5 /> },
     { name: "CSS", icon: <FaCss3Alt /> },
   ],
