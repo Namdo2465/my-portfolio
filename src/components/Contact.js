@@ -94,10 +94,11 @@ const Contact = () => {
             >
               <div className="contact-heading">
                 <p>
-                  Looking for a seasoned Software Engineer to lead your next big
-                  project? I specialize in building high-performance web
-                  experiences. Reach out for collaborations, consulting, or just
-                  to say hello.
+                  Have an idea, a project, or just want to chat about tech,
+                  startups, or football? I'd love to hear from you. Whether it's
+                  building something meaningful, solving an interesting problem,
+                  or exploring new opportunities, let's create something worth
+                  talking about.
                 </p>
               </div>
               <div className="contact-hello">

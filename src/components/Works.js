@@ -16,8 +16,8 @@ const Projects = () => {
 
   const tabData = [
     { id: "react", label: "React", data: ReactData },
-    { id: "vue", label: "Vue", data: VueData },
-    { id: "react-native", label: "React Native", data: ReactNativeData },
+    // { id: "vue", label: "Vue", data: VueData },
+    // { id: "react-native", label: "React Native", data: ReactNativeData },
   ];
 
   return (
@@ -29,11 +29,11 @@ const Projects = () => {
           viewport={{ once: true }}
           className="heading"
         >
-          <p className="heading-sub-text">I build</p>
           <p className="heading-text">Projects</p>
+          <p className="heading-sub-text">I built</p>
         </motion.div>
 
-        <div className="tabs">
+        {/* <div className="tabs">
           {tabData.map((tab) => (
             <button
               key={tab.id}
@@ -43,7 +43,7 @@ const Projects = () => {
               {tab.label}
             </button>
           ))}
-        </div>
+        </div> */}
 
         <motion.div
           className="works-box"
